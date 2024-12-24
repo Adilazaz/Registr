@@ -1,0 +1,29 @@
+// _input.scss
+// 
+// Template's input styles.
+// 
+
+.ant-input {
+	border-radius: 6px;
+}
+.ant-transfer-list-body-with-search {
+    padding-top: 0px;
+}
+
+.layout-dashboard-rtl {
+	.header-control {
+		.header-search {
+			.ant-input {
+				&:not(:first-child) {
+					padding-right: 32px;
+					padding-left: 11px;
+				}
+			}
+		}
+	}
+
+	.ant-input-affix-wrapper .ant-input-prefix {
+		right: 12px;
+		left: auto;
+	}
+}
