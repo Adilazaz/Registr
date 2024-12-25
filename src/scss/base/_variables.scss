@@ -80,3 +80,13 @@ $shadow-3: 0px 5px 10px rgba(0, 0, 0, 0.12);
 $submenu-links-p: 10px 16px;
 // / Template Vars
 
+$colors: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "warning": $color-warning,
+  "danger": $color-danger,
+  "dark": $color-dark,
+  "white": $color-white,
+  "muted": $color-muted
+);

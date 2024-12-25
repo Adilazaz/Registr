@@ -2,6 +2,7 @@
 // 
 // Template's basic typography configurations.
 // 
+@use './variables' as *;
 
 body {
     font-family: $f-family;

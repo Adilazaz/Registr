@@ -2,6 +2,7 @@
 // 
 // Overriding Ant Design's default variables, such as colors, shadows and... .
 // 
+@use './variables' as *;
 
 html {
 	--antd-wave-shadow-color: $color-primary ;
