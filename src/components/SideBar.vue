@@ -54,7 +54,7 @@ const props = defineProps({
 const route = useRoute();
 
 const menuItems = [
-    { path: '/', label: 'Справки', icon: MenuUnfoldOutlined, roles: ["USER", "ADMIN"] },
+    { path: '/', label: 'Справки', icon: MenuUnfoldOutlined, roles: ["USER"] },
     { path: '/adminPage', label: 'Админ Панель', icon: DollarOutlined, roles: ["ADMIN"] },
 ];
 

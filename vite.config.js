@@ -18,7 +18,18 @@ export default defineConfig({
       ],
     }),
   ],
-
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          'primary-color': '#1DA57A', // Измените основной цвет
+          'link-color': '#1DA57A',   // Цвет ссылок
+          'border-radius-base': '4px', // Скругление углов
+        },
+        javascriptEnabled: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src') 

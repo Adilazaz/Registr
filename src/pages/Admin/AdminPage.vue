@@ -9,7 +9,7 @@
       <a-table :columns="columns" :data-source="filteredUsers" bordered :pagination="true">
         <template #bodyCell="{ column, record }">
           <template v-if="column.dataIndex === 'button'">
-            <a-button type="primary" size="small" @click="executeUser(record.id)">Исполнить</a-button>
+            <a-button type="primary" size="small" @click="executeUser(record.id, record.email)">Исполнить</a-button>
           </template>
         </template>
       </a-table>
@@ -26,98 +26,106 @@
   {
     id: 1,
     idReference: 45,
+    reference: 'Справка для военкомата',
     email: 'random1@mail.com',
-    group: 'ИТС 3-20 (4-курс)',
-    firstName: 'Егор',
-    lastName: 'Васильев',
-    surName: 'Николаевич'
+    group: 'ПКС 1-22 (4-курс)',
+    firstName: 'Нурсултан',
+    lastName: 'Темиралиев'
   },
   {
     id: 2,
     idReference: 50,
+    reference: 'Справка по месту требования',
     email: 'student2@mail.com',
-    group: 'ПМ 1-19 (2-курс)',
-    firstName: 'Максим',
-    lastName: 'Козлов',
-    surName: 'Дмитриевич'
+    group: 'ПКС 1-22 (2-курс)',
+    firstName: 'Адиль',
+    lastName: 'Сулпукаров'
   },
   {
     id: 3,
     idReference: 46,
+    reference: 'Справка для работы',
     email: 'test3@mail.com',
-    group: 'ИС 4-21 (3-курс)',
-    firstName: 'Анна',
-    lastName: 'Семенова',
-    surName: 'Сергеевна'
+    group: 'ПКС 1-22 (3-курс)',
+    firstName: 'Башизова',
+    lastName: 'Малика'
   },
   {
     id: 4,
     idReference: 47,
+    reference: 'Справка для работы',
     email: 'example4@mail.com',
-    group: 'ЭКО 2-22 (1-курс)',
-    firstName: 'Ольга',
-    lastName: 'Попова',
-    surName: 'Андреевна'
+    group: 'ПКС 1-22 (1-курс)',
+    firstName: 'Амангелди',
+    lastName: 'Темирбеков'
   },
   {
     id: 5,
     idReference: 49,
+    reference: 'Справка по месту требования',
     email: 'info5@mail.com',
-    group: 'ПИ 3-23 (1-курс)',
-    firstName: 'Дмитрий',
-    lastName: 'Иванов',
-    surName: 'Павлович'
+    group: 'ПКС 1-22 (1-курс)',
+    firstName: 'Самат',
+    lastName: 'Дуйшонбеков'
   },
   {
     id: 6,
     idReference: 52,
+    reference: 'Справка по месту требования',
     email: 'random6@mail.com',
-    group: 'ЭЭ 4-20 (3-курс)',
-    firstName: 'Сергей',
-    lastName: 'Федоров',
-    surName: 'Викторович'
+    group: 'ПКС 1-22 (3-курс)',
+    firstName: 'Азамат',
+    lastName: 'Сопубеков'
   },
   {
     id: 7,
     idReference: 51,
+    reference: 'Справка для военкомата',
     email: 'user7@mail.com',
-    group: 'МЭ 1-21 (2-курс)',
-    firstName: 'Артём',
-    lastName: 'Павлов',
-    surName: 'Владимирович'
+    group: 'ПКС 1-22 (2-курс)',
+    firstName: 'Арген',
+    lastName: 'Казаков'
   },
   {
     id: 8,
     idReference: 48,
+    reference: 'Справка для работы',
     email: 'student8@mail.com',
-    group: 'ЭКО 3-19 (4-курс)',
-    firstName: 'Екатерина',
-    lastName: 'Смирнова',
-    surName: 'Алексеевна'
+    group: 'ПКС 1-22 (4-курс)',
+    firstName: 'Айдар',
+    lastName: 'Рысбеков'
   },
   {
     id: 9,
     idReference: 53,
+    reference: 'Справка для военкомата',
     email: 'test9@mail.com',
-    group: 'ЭЭ 2-23 (1-курс)',
-    firstName: 'Татьяна',
-    lastName: 'Кузнецова',
-    surName: 'Игоревна'
+    group: 'ПКС 1-22 (1-курс)',
+    firstName: 'Адеми',
+    lastName: 'Замирбекова'
   },
   {
     id: 10,
     idReference: 54,
+    reference: 'Справка для работы',
     email: 'example10@mail.com',
-    group: 'ПИ 2-22 (2-курс)',
-    firstName: 'Ирина',
-    lastName: 'Михайлова',
-    surName: 'Романовна'
-  }
+    group: 'ПКС 1-22 (2-курс)',
+    firstName: 'Эльмар',
+    lastName: 'Тунгучбеков'
+  },
+  {
+    id: 2,
+    idReference: 67,
+    reference: 'Справка для военкомата',
+    email: 'student2@mail.com',
+    group: 'ПКС 1-22 (2-курс)',
+    firstName: 'Адиль',
+    lastName: 'Сулпукаров'
+  },
   ]);
   
   const searchQuery = ref('');
   
-  // Фильтрация по группам
   const filteredUsers = computed(() => {
     return users.value.filter(user =>
       user.group.toLowerCase().includes(searchQuery.value.toLowerCase())
@@ -127,11 +135,11 @@
   const columns = [
     { title: 'ID студента', dataIndex: 'id' },
     { title: 'ID справки', dataIndex: 'idReference' },
+    { title: 'Справка', dataIndex: 'reference' },
     { title: 'Почта', dataIndex: 'email' },
     { title: 'Группа (курс)', dataIndex: 'group' },
     { title: 'Фамилия', dataIndex: 'lastName' },
     { title: 'Имя', dataIndex: 'firstName' },
-    { title: 'Отчество', dataIndex: 'surName' },
     { title: 'Действие', dataIndex: 'button' }
   ];
   

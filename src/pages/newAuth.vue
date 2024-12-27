@@ -69,19 +69,35 @@ const onFinish = async (values) => {
     errors.password = '';
 
     try {
-        // Диспатчим действие в store
-        const response = await store.dispatch("auth/logins", values);     
-
-        // Проверяем, что ответ — это объект
-        if (typeof response === 'object' && response !== null) {
-            
-            // Сохраняем ответ в localStorage
-            localStorage.setItem('userInfo', JSON.stringify(response.res.data));
+        // Проверяем, если введены ADMIN и ADMIN
+        if (values.login === 'ADMIN' && values.password === 'ADMIN') {
+            const adminUser = {
+                id: 0,
+                email: "mukr@gmail.com",
+                firstName: "admin",
+                lastName: "admin",
+                roles: "ADMIN",
+                password: "ADMIN"
+            };
+            // Сохраняем фиксированные данные администратора
+            localStorage.setItem('userInfo', JSON.stringify(adminUser));
 
             // Переход на главную страницу
-            router.push("/");
+            router.push("/adminPage");
         } else {
-            throw new Error('Некорректный ответ от сервера');
+            // Диспатчим действие в store для других пользователей
+            const response = await store.dispatch("auth/logins", values);
+
+            // Проверяем, что ответ — это объект
+            if (typeof response === 'object' && response !== null) {
+                // Сохраняем ответ в localStorage
+                localStorage.setItem('userInfo', JSON.stringify(response.res.data));
+
+                // Переход на главную страницу
+                router.push("/");
+            } else {
+                throw new Error('Некорректный ответ от сервера');
+            }
         }
     } catch (error) {
         // Обработка ошибок
@@ -96,10 +112,6 @@ const onFinish = async (values) => {
         clearForm();
     }
 };
-
-
-
-
 
 const onFinishFailed = errorInfo => {
     console.log('Failed:', errorInfo);
@@ -121,6 +133,7 @@ const disabled = computed(() => {
     return (formState.login && formState.password);
 });
 </script>
+
 
 <style scoped>
 .login-container {

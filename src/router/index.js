@@ -22,14 +22,6 @@ const routes = [
 if (userInfo) {
     routes.push(
         {
-            path: "/",
-            name: "Справки",
-            meta: {
-                layout: 'dashboard',
-            },
-            component: Home
-        },
-        {
             path: "/profile",
             name: "Профиль",
             meta: {
@@ -48,6 +40,17 @@ if (userInfo) {
             },
             component: AdminPage
         });
+    } else {
+        routes.push(
+            {
+                path: "/",
+                name: "Справки",
+                meta: {
+                    layout: 'dashboard',
+                },
+                component: Home
+            },
+        );
     }
 }
 
