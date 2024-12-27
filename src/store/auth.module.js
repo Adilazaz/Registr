@@ -10,9 +10,11 @@ export const auth = {
     async logins({ commit }, payload) {
       try {
         const res = await AuthService.login(payload)
-        const { status } = res
+        const { status, data } = res;
+        console.log(res);
+        
         if (status === 201) {
-          return {"id":14,"email":"adil","firstName":"Name","lastName":"Name","roles":"ADMIN", "password":"pass"}
+          return {res}
         } else {
           throw `Add contract variation order status: ${status}`
         }

@@ -70,15 +70,13 @@ const onFinish = async (values) => {
 
     try {
         // Диспатчим действие в store
-        const response = await store.dispatch("auth/logins", values);
-
-        console.log(response);
-        
+        const response = await store.dispatch("auth/logins", values);     
 
         // Проверяем, что ответ — это объект
         if (typeof response === 'object' && response !== null) {
+            
             // Сохраняем ответ в localStorage
-            localStorage.setItem('userInfo', JSON.stringify(response));
+            localStorage.setItem('userInfo', JSON.stringify(response.res.data));
 
             // Переход на главную страницу
             router.push("/");
