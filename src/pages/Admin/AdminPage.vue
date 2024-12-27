@@ -21,79 +21,98 @@
   import { message, Modal } from 'ant-design-vue';
   
   // Данные пользователей
-  const users = ref([
-    {
-      id: 1,
-      idReference: 34,
-      email: 'primer@gmail.com',
-      group: 'ПКС 1-22 (3-курс)',
-      firstName: 'Иван',
-      lastName: 'Петров',
-      surName: 'Иванович'
-    },
-    {
-      id: 2,
-      idReference: 35,
-      email: 'example@gmail.com',
-      group: 'ПКС 2-21 (2-курс)',
-      firstName: 'Алексей',
-      lastName: 'Сидоров',
-      surName: 'Александрович'
-    },
-    {
-      id: 1,
-      idReference: 34,
-      email: 'primer@gmail.com',
-      group: 'ПКС 1-22 (3-курс)',
-      firstName: 'Иван',
-      lastName: 'Петров',
-      surName: 'Иванович'
-    },
-    {
-      id: 2,
-      idReference: 35,
-      email: 'example@gmail.com',
-      group: 'ПКС 2-21 (2-курс)',
-      firstName: 'Алексей',
-      lastName: 'Сидоров',
-      surName: 'Александрович'
-    },
-    {
-      id: 1,
-      idReference: 34,
-      email: 'primer@gmail.com',
-      group: 'ПКС 1-22 (3-курс)',
-      firstName: 'Иван',
-      lastName: 'Петров',
-      surName: 'Иванович'
-    },
-    {
-      id: 2,
-      idReference: 35,
-      email: 'example@gmail.com',
-      group: 'ПКС 2-21 (2-курс)',
-      firstName: 'Алексей',
-      lastName: 'Сидоров',
-      surName: 'Александрович'
-    },
-    {
-      id: 1,
-      idReference: 34,
-      email: 'primer@gmail.com',
-      group: 'ПКС 1-22 (3-курс)',
-      firstName: 'Иван',
-      lastName: 'Петров',
-      surName: 'Иванович'
-    },
-    {
-      id: 2,
-      idReference: 35,
-      email: 'example@gmail.com',
-      group: 'ПКС 2-21 (2-курс)',
-      firstName: 'Алексей',
-      lastName: 'Сидоров',
-      surName: 'Александрович'
-    },
+  const users = ref(
+  [
+  {
+    id: 1,
+    idReference: 45,
+    email: 'random1@mail.com',
+    group: 'ИТС 3-20 (4-курс)',
+    firstName: 'Егор',
+    lastName: 'Васильев',
+    surName: 'Николаевич'
+  },
+  {
+    id: 2,
+    idReference: 50,
+    email: 'student2@mail.com',
+    group: 'ПМ 1-19 (2-курс)',
+    firstName: 'Максим',
+    lastName: 'Козлов',
+    surName: 'Дмитриевич'
+  },
+  {
+    id: 3,
+    idReference: 46,
+    email: 'test3@mail.com',
+    group: 'ИС 4-21 (3-курс)',
+    firstName: 'Анна',
+    lastName: 'Семенова',
+    surName: 'Сергеевна'
+  },
+  {
+    id: 4,
+    idReference: 47,
+    email: 'example4@mail.com',
+    group: 'ЭКО 2-22 (1-курс)',
+    firstName: 'Ольга',
+    lastName: 'Попова',
+    surName: 'Андреевна'
+  },
+  {
+    id: 5,
+    idReference: 49,
+    email: 'info5@mail.com',
+    group: 'ПИ 3-23 (1-курс)',
+    firstName: 'Дмитрий',
+    lastName: 'Иванов',
+    surName: 'Павлович'
+  },
+  {
+    id: 6,
+    idReference: 52,
+    email: 'random6@mail.com',
+    group: 'ЭЭ 4-20 (3-курс)',
+    firstName: 'Сергей',
+    lastName: 'Федоров',
+    surName: 'Викторович'
+  },
+  {
+    id: 7,
+    idReference: 51,
+    email: 'user7@mail.com',
+    group: 'МЭ 1-21 (2-курс)',
+    firstName: 'Артём',
+    lastName: 'Павлов',
+    surName: 'Владимирович'
+  },
+  {
+    id: 8,
+    idReference: 48,
+    email: 'student8@mail.com',
+    group: 'ЭКО 3-19 (4-курс)',
+    firstName: 'Екатерина',
+    lastName: 'Смирнова',
+    surName: 'Алексеевна'
+  },
+  {
+    id: 9,
+    idReference: 53,
+    email: 'test9@mail.com',
+    group: 'ЭЭ 2-23 (1-курс)',
+    firstName: 'Татьяна',
+    lastName: 'Кузнецова',
+    surName: 'Игоревна'
+  },
+  {
+    id: 10,
+    idReference: 54,
+    email: 'example10@mail.com',
+    group: 'ПИ 2-22 (2-курс)',
+    firstName: 'Ирина',
+    lastName: 'Михайлова',
+    surName: 'Романовна'
+  }
   ]);
   
   const searchQuery = ref('');
